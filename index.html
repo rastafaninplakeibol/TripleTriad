@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./../bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T">
+    
+    <script type="text/javascript" src="./index.js"></script>
+    <style>
+        .card-row {
+            display: table;
+            text-align: center;
+        }
+
+        .single-col {
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        .lateral-col {
+            width: 36px;
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        .card {
+            width: 200px;
+            height: 220px;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .card-img {
+            width: 128px;
+            height: 128px;
+        }
+
+        #table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+            height: 660px;
+            width: 600px;
+        }
+
+        .card-slot {
+            width: 200px;
+            height: 220px;
+            background-color: rgba(255, 145, 0, 0.555);
+            border: 2px;
+            border-style: groove;
+        }
+
+        .row {
+            margin: auto;
+        }
+
+        .hand-field {
+            height: 1100px;
+            width: 200px;
+        }
+
+        .player-1 {
+            background-color: rgba(217, 21, 24, 0.555);
+        }
+        
+        .player-2 {
+            background-color: #07893093;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            if(ev.target.childElementCount == 0) ev.preventDefault();
+            return true
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("idTarget", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("idTarget");
+            ev.target.appendChild(document.getElementById(data).childNodes[0]);
+            checkRibaltamento(data,ev.target.id)
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body class="h-100">
+    <div class="row">
+        <div id="g1" class="hand-field">
+            <div id="g1c0" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g1c1" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g1c2" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g1c3" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g1c4" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+        </div>
+        <div id="table">
+            <div class="row">
+                <h2 class="col-6" id="pg1">5</h2>
+                <h2 class="col-6" id="pg2" style="text-align: right;">5</h2>
+            </div>
+            <div class="row">
+                <div id="cs00" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="cs01" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="cs02" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div class="row">
+                <div id="cs10" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="cs11" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="cs12" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div class="row">
+                <div id="cs20" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="cs21" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="cs22" class="card-slot" draggable="false" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+        </div>
+        <div id="g2" class="hand-field">
+            <div id="g2c0" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g2c1" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g2c2" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g2c3" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+            <div id="g2c4" class="card-slot" draggable="true" ondragstart="drag(event)"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--
+   colore g1: #2CEDCE
+
+
+-->
