@@ -156,7 +156,6 @@ function ribalta(card, playerId, riga, colonna, direction) {
 function insertInHand(playerId, card) {
     let position = 0;
     let htmlCard = createCard(card)
-    //makeDraggable(htmlCard)
     if (playerId == 1) {
         card.player = 1
         player1Hand.push(card)
